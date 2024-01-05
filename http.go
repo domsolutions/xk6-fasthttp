@@ -37,7 +37,8 @@ func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
 	rt := vu.Runtime()
 
 	mi := &ModuleInstance{
-		vu: vu,
+		vu:      vu,
+		exports: rt.NewObject(),
 	}
 
 	mustExport := func(name string, value interface{}) {
