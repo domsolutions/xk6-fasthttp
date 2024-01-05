@@ -1,7 +1,7 @@
 # xk6-fasthttp
 
 [![Build status](https://github.com/domsolutions/xk6-fasthttp/actions/workflows/go.yml/badge.svg)](https://github.com/domsolutions/xk6-fasthttp/actions/workflows/go.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/xk6-fasthttp/gopayloader)](https://goreportcard.com/report/github.com/domsolutions/xk6-fasthttp)
+[![Go Report Card](https://goreportcard.com/badge/github.com/domsolutions/xk6-fasthttp)](https://goreportcard.com/report/github.com/domsolutions/xk6-fasthttp)
 [![GoDoc](https://godoc.org/github.com/domsolutions/xk6-fasthttp?status.svg)](http://godoc.org/github.com/domsolutions/xk6-fasthttp)
 
 The xk6-fasthttp project is a k6 [extension](https://k6.io/docs/extensions/guides/what-are-k6-extensions/) that enables k6 users to send a higher RPS (request per second) for HTTP/1.1 than with the standard k6 build. It achieves this by using the [fasthttp](https://github.com/valyala/fasthttp) library which has lots of memory/CPU optimization and by optimizing the library which checks the response status.
@@ -12,7 +12,7 @@ Note this extension **only supports HTTP/1.1.**
 
 ## Features
 - Increased RPS on HTTPS connections of **74%**
-- Increased RPS on HTTP connections of **75**
+- Increased RPS on HTTP connections of **75%**
 - Ability to stream files from disk with `FileStream` so k6 doesn't run out of memory
 - Supports JSON/DOM manipulation same as `k6/http`
 
@@ -160,33 +160,33 @@ xk6 build --with github.com/domsolutions/xk6-fasthttp@latest
 
 The `Client` object takes the following configuration options in its constructor with default values as below:
 
-```javascript
+```json
 {
   // timeout for attempting connection
-  dial_timeout: 5, 
+  "dial_timeout": 5, 
   // optional proxy to connect to i.e. "username:password@localhost:9050"    
-  proxy: "",
+  "proxy": "",
   // max connection duration, 0 is unlimited
-  max_conn_duration: 0,
+  "max_conn_duration": 0,
   // user agent to send in HTTP header
-  user_agent: "",
+  "user_agent": "",
   // Per-connection buffer size for responses' reading. 0 is unlimited
-  read_buffer_size: 0,
+  "read_buffer_size": 0,
   // Per-connection buffer size for requests' writing.
-  write_buffer_size: 0,
+  "write_buffer_size": 0,
   // Maximum duration for full response reading (including body). 0 is unlimited
-  read_timeout: 0,
+  "read_timeout": 0,
   // Maximum duration for full request writing (including body).
-  write_timeout: 0,
+  "write_timeout": 0,
   // Maximum number of connections per each host which may be established.
-  max_conns_per_host: 1,
-  tls_config: {
+  "max_conns_per_host": 1,
+  "tls_config": {
         // skip CA signer verification - useful for localhost testing
-        insecure_skip_verify: false,
+        "insecure_skip_verify": false,
         // private key file path for mTLS handshake
-        private_key: "",
+        "private_key": "",
         // certificate file path for mTLS handshake
-        certificate: ""    
+        "certificate": ""    
   }
 }
 ```
