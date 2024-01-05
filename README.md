@@ -160,7 +160,7 @@ xk6 build --with github.com/domsolutions/xk6-fasthttp@latest
 
 The `Client` object takes the following configuration options in its constructor with default values as below:
 
-```json
+```javascript
 {
   // timeout for attempting connection
   "dial_timeout": 5, 
