@@ -24,7 +24,7 @@ var (
 )
 
 func init() {
-	modules.Register("blahk6/x/fasthttp", New())
+	modules.Register("k6/x/fasthttp", New())
 }
 
 // New returns a pointer to a new HTTP RootModule.
