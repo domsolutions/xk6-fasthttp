@@ -7,7 +7,6 @@ import (
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules"
 	"go.k6.io/k6/lib/netext/httpext"
-	"os"
 	"sync"
 )
 
@@ -25,9 +24,7 @@ var (
 )
 
 func init() {
-	modules.Register("k6/x/fasthttp", New())
-
-	os.Exit(1)
+	modules.Register("blahk6/x/fasthttp", New())
 }
 
 // New returns a pointer to a new HTTP RootModule.
