@@ -14,7 +14,8 @@ type RootModule struct{}
 
 // ModuleInstance represents an instance of the HTTP module for every VU.
 type ModuleInstance struct {
-	vu modules.VU
+	vu      modules.VU
+	exports *goja.Object
 }
 
 var (
@@ -33,9 +34,23 @@ func New() *RootModule {
 
 // NewModuleInstance returns an HTTP module instance for each VU.
 func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
+	rt := vu.Runtime()
+
 	mi := &ModuleInstance{
 		vu: vu,
 	}
+
+	mustExport := func(name string, value interface{}) {
+		if err := mi.exports.Set(name, value); err != nil {
+			common.Throw(rt, err)
+		}
+	}
+
+	mustExport("FileStream", mi.FileStream)
+	mustExport("Client", mi.Client)
+	mustExport("Request", mi.Request)
+	mustExport("checkstatus", mi.CheckStatus)
+
 	return mi
 }
 
@@ -70,11 +85,6 @@ func (mi *ModuleInstance) Request(call goja.ConstructorCall, rt *goja.Runtime) *
 // Exports returns the JS values this module exports.
 func (mi *ModuleInstance) Exports() modules.Exports {
 	return modules.Exports{
-		Named: map[string]any{
-			"FileStream":  mi.FileStream,
-			"Client":      mi.Client,
-			"Request":     mi.Request,
-			"checkstatus": mi.CheckStatus,
-		},
+		Default: mi.exports,
 	}
 }
