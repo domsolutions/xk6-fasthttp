@@ -14,9 +14,7 @@ type RootModule struct{}
 
 // ModuleInstance represents an instance of the HTTP module for every VU.
 type ModuleInstance struct {
-	vu         modules.VU
-	rootModule *RootModule
-	exports    *goja.Object
+	vu modules.VU
 }
 
 var (
@@ -35,11 +33,8 @@ func New() *RootModule {
 
 // NewModuleInstance returns an HTTP module instance for each VU.
 func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
-	rt := vu.Runtime()
 	mi := &ModuleInstance{
-		vu:         vu,
-		rootModule: r,
-		exports:    rt.NewObject(),
+		vu: vu,
 	}
 	return mi
 }
