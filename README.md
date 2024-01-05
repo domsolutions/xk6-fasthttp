@@ -1,5 +1,9 @@
 # xk6-fasthttp
 
+[![Build status](https://github.com/domsolutions/xk6-fasthttp/actions/workflows/go.yml/badge.svg)](https://github.com/domsolutions/xk6-fasthttp/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xk6-fasthttp/gopayloader)](https://goreportcard.com/report/github.com/domsolutions/xk6-fasthttp)
+[![GoDoc](https://godoc.org/github.com/domsolutions/xk6-fasthttp?status.svg)](http://godoc.org/github.com/domsolutions/xk6-fasthttp)
+
 The xk6-fasthttp project is a k6 [extension](https://k6.io/docs/extensions/guides/what-are-k6-extensions/) that enables k6 users to send a higher RPS (request per second) for HTTP/1.1 than with the standard k6 build. It achieves this by using the [fasthttp](https://github.com/valyala/fasthttp) library which has lots of memory/CPU optimization and by optimizing the library which checks the response status.
 
 This is intended for users who wish to stress test a HTTP/1.1 server with a higher RPS than normally possible with k6.

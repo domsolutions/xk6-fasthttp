@@ -50,7 +50,7 @@ func TestBlackListedIPError(t *testing.T) {
 	t.Parallel()
 	err := netext.BlackListedIPError{}
 	testErrorCode(t, blackListedIPErrorCode, err)
-	errorCode, errorMsg := errorCodeForError(err)
+	errorCode, errorMsg := ErrorCodeForError(err)
 	require.NotEqual(t, err.Error(), errorMsg)
 	require.Equal(t, blackListedIPErrorCode, errorCode)
 }
@@ -74,7 +74,7 @@ func TestUnknownNetErrno(t *testing.T) {
 	expectedError := fmt.Sprintf(
 		"write: unknown errno `%d` on %s with message `%s`",
 		syscall.ENOTRECOVERABLE, runtime.GOOS, err.Err)
-	errorCode, errorMsg := errorCodeForError(err)
+	errorCode, errorMsg := ErrorCodeForError(err)
 	require.Equal(t, expectedError, errorMsg)
 	require.Equal(t, netUnknownErrnoErrorCode, errorCode)
 }
@@ -106,13 +106,13 @@ func TestTCPErrors(t *testing.T) {
 
 func testErrorCode(t *testing.T, code ErrCode, err error) {
 	t.Helper()
-	result, _ := errorCodeForError(err)
+	result, _ := ErrorCodeForError(err)
 	require.Equalf(t, code, result, "Wrong error code for error `%s`", err)
 
-	result, _ = errorCodeForError(fmt.Errorf("foo: %w", err))
+	result, _ = ErrorCodeForError(fmt.Errorf("foo: %w", err))
 	require.Equalf(t, code, result, "Wrong error code for error `%s`", err)
 
-	result, _ = errorCodeForError(&url.Error{Err: err})
+	result, _ = ErrorCodeForError(&url.Error{Err: err})
 	require.Equalf(t, code, result, "Wrong error code for error `%s`", err)
 }
 
@@ -156,7 +156,7 @@ func TestConnReset(t *testing.T) {
 	res, err := http.Get("http://" + addr.String()) //nolint:bodyclose,noctx
 	require.Nil(t, res)
 
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, tcpResetByPeerErrorCode, code)
 	assert.Contains(t, msg, fmt.Sprintf(tcpResetByPeerErrorCodeMsg, ""))
 	for err := range ch {
@@ -170,7 +170,7 @@ func TestDnsResolve(t *testing.T) {
 	// this is not happening in our current codebase as the resolution in our code
 	// happens earlier so it doesn't get wrapped, but possibly happens in other cases as well
 	_, err := http.Get("http://s.com") //nolint:bodyclose,noctx
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 
 	assert.Equal(t, dnsNoSuchHostErrorCode, code)
 	assert.Equal(t, dnsNoSuchHostErrorCodeMsg, msg)
@@ -200,7 +200,7 @@ func TestHTTP2StreamError(t *testing.T) {
 	_ = res.Body.Close()
 	require.Error(t, err)
 
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, unknownHTTP2StreamErrorCode+ErrCode(http2.ErrCodeInternal)+1, code)
 	assert.Contains(t, msg, fmt.Sprintf(http2StreamErrorCodeMsg, http2.ErrCodeInternal))
 }
@@ -228,7 +228,7 @@ func TestX509HostnameError(t *testing.T) {
 	require.Nil(t, res)
 	require.Error(t, err)
 
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, x509HostnameErrorCode, code)
 	assert.Contains(t, msg, x509HostnameErrorCodeMsg)
 }
@@ -249,7 +249,7 @@ func TestX509UnknownAuthorityError(t *testing.T) {
 	require.Nil(t, res)
 	require.Error(t, err)
 
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, x509UnknownAuthorityErrorCode, code)
 	assert.Contains(t, msg, x509UnknownAuthority)
 }
@@ -280,7 +280,7 @@ func TestDefaultTLSError(t *testing.T) {
 	_, err = client.Get("https://" + l.Addr().String()) //nolint:bodyclose,noctx
 	require.Error(t, err)
 
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, tlsHeaderErrorCode, code)
 	urlError := new(url.Error)
 	require.ErrorAs(t, err, &urlError)
@@ -303,7 +303,7 @@ func TestHTTP2ConnectionError(t *testing.T) {
 	}
 
 	_, err := client.Get(tb.Replacer.Replace("HTTP2BIN_URL/tsr")) //nolint:bodyclose,noctx
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, unknownHTTP2ConnectionErrorCode+ErrCode(http2.ErrCodeProtocol)+1, code)
 	assert.Equal(t, fmt.Sprintf(http2ConnectionErrorCodeMsg, http2.ErrCodeProtocol), msg)
 }
@@ -326,7 +326,7 @@ func TestHTTP2GoAwayError(t *testing.T) {
 	_, err := client.Get(tb.Replacer.Replace("HTTP2BIN_URL/tsr")) //nolint:bodyclose,noctx
 
 	require.Error(t, err)
-	code, msg := errorCodeForError(err)
+	code, msg := ErrorCodeForError(err)
 	assert.Equal(t, unknownHTTP2GoAwayErrorCode+ErrCode(http2.ErrCodeInadequateSecurity)+1, code)
 	assert.Equal(t, fmt.Sprintf(http2GoAwayErrorCodeMsg, http2.ErrCodeInadequateSecurity), msg)
 }
