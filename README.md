@@ -8,7 +8,7 @@ Note this extension **only supports HTTP/1.1.**
 
 ## Features
 - Increased RPS on HTTPS connections of **74%**
-- Increased RPS on HTTP connections of **60%**
+- Increased RPS on HTTP connections of **75**
 - Ability to stream files from disk with `FileStream` so k6 doesn't run out of memory
 - Supports JSON/DOM manipulation same as `k6/http`
 
