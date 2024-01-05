@@ -7,6 +7,7 @@ import (
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules"
 	"go.k6.io/k6/lib/netext/httpext"
+	"os"
 	"sync"
 )
 
@@ -36,6 +37,7 @@ func New() *RootModule {
 func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
 	rt := vu.Runtime()
 
+	os.Exit(1)
 	mi := &ModuleInstance{
 		vu:      vu,
 		exports: rt.NewObject(),
