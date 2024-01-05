@@ -31,7 +31,7 @@ jobs:
     - name: Go vet
       run: go vet ./...
 
-    - name: Build
+    - name: Test
       run: go test -v ./...
 
     - name: Build
