@@ -24,6 +24,10 @@ var (
 	_ modules.Instance = &ModuleInstance{}
 )
 
+func init() {
+	modules.Register("k6/x/fasthttp", New)
+}
+
 // New returns a pointer to a new HTTP RootModule.
 func New() *RootModule {
 	return &RootModule{}
