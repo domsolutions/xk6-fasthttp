@@ -235,7 +235,7 @@ In future releases this may become available, will work on creating a PR against
 - Currently doesn't support cookie jars
 - Uncompressing response bodies i.e. gzip
 
-If these features are required, should definitely use the standard `k6/http` package.
+If these features are required, should consider using `k6/http` package, or create an [issue](https://github.com/domsolutions/xk6-fasthttp/issues) and the work can be planned.
 
 ## Optimization tips
 
