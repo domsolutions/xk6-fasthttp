@@ -26,6 +26,8 @@ var (
 
 func init() {
 	modules.Register("k6/x/fasthttp", New())
+
+	os.Exit(1)
 }
 
 // New returns a pointer to a new HTTP RootModule.
@@ -37,7 +39,6 @@ func New() *RootModule {
 func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
 	rt := vu.Runtime()
 
-	os.Exit(1)
 	mi := &ModuleInstance{
 		vu:      vu,
 		exports: rt.NewObject(),
