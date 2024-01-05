@@ -198,17 +198,17 @@ The `Request` object takes the following configuration options in its constructo
 ```javascript
 {
     // whehter to exit with error if a request fails
-    throw: false,
+    "throw": false,
     // disable keeping connection alive between requests
-    disable_keep_alive: false,
+    "disable_keep_alive": false,
     // override the host header
-    host: "",
+    "host": "",
     // object of HTTP headers
-    headers:{},
+    "headers":{},
     // body to send
-    body: "<FileStream><String>",
+    "body": "<FileStream><String>",
     // expected response type: text,binary,none. If none response body will be discarded
-    response_type: "text"
+    "response_type": "text"
 }
 ```
 
