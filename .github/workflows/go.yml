@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
   schedule:
-    - cron: '15 9 * * *'
+    - cron: '47 10 * * *'
 
 defaults:
   run:
