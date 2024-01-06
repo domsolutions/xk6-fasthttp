@@ -1,13 +1,17 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Go
+name: E2E
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '15 9 * * *'
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
 
@@ -16,9 +20,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: true
-      max-parallel: 1
 
     steps:
     - uses: actions/checkout@v3
@@ -34,5 +37,21 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - name: Build
-      run: go build ./...
+    - name: Install k6
+      run: go install go.k6.io/k6@latest
+
+    - name: Install xk6
+      run: go install go.k6.io/xk6/cmd/xk6@latest
+
+    - name: Build extension
+      run: |
+        which go
+        go version
+        
+        GOPRIVATE="go.k6.io/k6" xk6 build latest \
+          --output ./k6ext \
+          --with github.com/domsolutions/xk6-fasthttp=.
+        ./k6ext version
+
+    - name: Run E2E test
+      run: ./k6ext run -u 1 -i 1 examples/json.js
