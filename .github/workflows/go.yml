@@ -1,7 +1,4 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Go
+name: E2E
 
 on:
   push:
@@ -10,7 +7,7 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
   schedule:
-    - cron: '42 7 * * *'
+    - cron: '15 9 * * *'
 
 jobs:
 
@@ -19,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: true
       max-parallel: 1
 
