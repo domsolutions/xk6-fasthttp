@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '15 9 * * *'
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
 
   build:
