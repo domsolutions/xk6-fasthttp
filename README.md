@@ -145,6 +145,8 @@ export default function () {
 
 ## Install
 
+Requires Go >= 1.20
+
 1. Install xk6:
 ```shell
 go install go.k6.io/xk6/cmd/xk6@latest
