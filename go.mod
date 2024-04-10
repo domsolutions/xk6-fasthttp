@@ -3,14 +3,11 @@ module github.com/domsolutions/xk6-fasthttp
 go 1.20
 
 require (
-	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
-	github.com/stretchr/testify v1.8.4
-
-	
+	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
+	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.17.1
 	github.com/valyala/fasthttp v1.52.0
-
-	go.k6.io/k6 v0.49.0
+	go.k6.io/k6 v0.50.0
 	golang.org/x/net v0.24.0
 	gopkg.in/guregu/null.v3 v3.5.0
 )
@@ -27,7 +24,7 @@ require (
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-sourcemap/sourcemap v2.1.4-0.20211119122758-180fcef48034+incompatible // indirect
+	github.com/go-sourcemap/sourcemap v2.1.4+incompatible // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/pprof v0.0.0-20230728192033-2ba5b33183c6 // indirect
 	github.com/gorilla/websocket v1.5.1 // indirect
@@ -64,6 +61,6 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20231002182017-d307bd883b97 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231002182017-d307bd883b97 // indirect
 	google.golang.org/grpc v1.60.0 // indirect
-	google.golang.org/protobuf v1.31.1-0.20231027082548-f4a6c1f6e5c1 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
