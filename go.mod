@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
 	github.com/stretchr/testify v1.8.4
-	github.com/tidwall/gjson v1.17.0
+	github.com/tidwall/gjson v1.17.1
 	github.com/valyala/fasthttp v1.51.0
 	go.k6.io/k6 v0.49.0
 	golang.org/x/net v0.24.0
