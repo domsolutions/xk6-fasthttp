@@ -5,11 +5,8 @@ go 1.20
 require (
 	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
 	github.com/stretchr/testify v1.8.4
-
-	
 	github.com/tidwall/gjson v1.17.1
-	github.com/valyala/fasthttp v1.52.0
-
+	github.com/valyala/fasthttp v1.53.0
 	go.k6.io/k6 v0.49.0
 	golang.org/x/net v0.24.0
 	gopkg.in/guregu/null.v3 v3.5.0
@@ -33,7 +30,7 @@ require (
 	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
-	github.com/klauspost/compress v1.17.6 // indirect
+	github.com/klauspost/compress v1.17.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
