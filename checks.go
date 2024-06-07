@@ -2,13 +2,13 @@ package fasthttp
 
 import (
 	"errors"
+	"strconv"
+	"time"
+
 	"github.com/dop251/goja"
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules/k6"
 	"go.k6.io/k6/metrics"
-	"strconv"
-	"sync/atomic"
-	"time"
 )
 
 func (mi *ModuleInstance) CheckStatus(wantStatus int, r *goja.Object, extras ...goja.Value) (bool, error) {
@@ -37,15 +37,11 @@ func (mi *ModuleInstance) CheckStatus(wantStatus int, r *goja.Object, extras ...
 		}
 	}
 
-	// Resolve the check record.
-	check, err := state.Group.Check("check status is " + strconv.FormatInt(int64(wantStatus), 10))
-	if err != nil {
-		return false, err
-	}
+	checkName := "check status is " + strconv.FormatInt(int64(wantStatus), 10)
 
 	tags := commonTagsAndMeta.Tags
 	if state.Options.SystemTags.Has(metrics.TagCheck) {
-		tags = tags.With("check", check.Name)
+		tags = tags.With("check", checkName)
 	}
 
 	pass := resp.Status == wantStatus
@@ -58,13 +54,6 @@ func (mi *ModuleInstance) CheckStatus(wantStatus int, r *goja.Object, extras ...
 		Time:     t,
 		Metadata: commonTagsAndMeta.Metadata,
 		Value:    0,
-	}
-
-	if pass {
-		atomic.AddInt64(&check.Passes, 1)
-		sample.Value = 1
-	} else {
-		atomic.AddInt64(&check.Fails, 1)
 	}
 
 	metrics.PushIfNotDone(ctx, state.Samples, sample)
