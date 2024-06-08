@@ -6,7 +6,7 @@ require (
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.17.1
-	github.com/valyala/fasthttp v1.52.0
+	github.com/valyala/fasthttp v1.54.0
 	go.k6.io/k6 v0.51.0
 	golang.org/x/net v0.24.0
 	gopkg.in/guregu/null.v3 v3.5.0
