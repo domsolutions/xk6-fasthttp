@@ -3,11 +3,12 @@ package fasthttp
 import (
 	"errors"
 	"fmt"
-	"github.com/dop251/goja"
+	"sync"
+
+	"github.com/grafana/sobek"
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules"
 	"go.k6.io/k6/lib/netext/httpext"
-	"sync"
 )
 
 type RootModule struct{}
@@ -15,7 +16,7 @@ type RootModule struct{}
 // ModuleInstance represents an instance of the HTTP module for every VU.
 type ModuleInstance struct {
 	vu      modules.VU
-	exports *goja.Object
+	exports *sobek.Object
 }
 
 var (
@@ -56,7 +57,7 @@ func (r *RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
 }
 
 // RequestWrapper Create new request with New RequestWrapper({})
-func (mi *ModuleInstance) Request(call goja.ConstructorCall, rt *goja.Runtime) *goja.Object {
+func (mi *ModuleInstance) Request(call sobek.ConstructorCall, rt *sobek.Runtime) *sobek.Object {
 	if len(call.Arguments) > 2 || len(call.Arguments) == 0 {
 		common.Throw(mi.vu.Runtime(), errors.New("req constructor expects 1 or 2 args"))
 	}

@@ -5,18 +5,19 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"net"
+	"sync"
+	"time"
+
 	e "github.com/domsolutions/xk6-fasthttp/errors"
 	"github.com/domsolutions/xk6-fasthttp/metrics"
 	"github.com/domsolutions/xk6-fasthttp/tracer"
-	"github.com/dop251/goja"
+	"github.com/grafana/sobek"
 	http "github.com/valyala/fasthttp"
 	proxy "github.com/valyala/fasthttp/fasthttpproxy"
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules"
 	"go.k6.io/k6/lib/netext/httpext"
-	"net"
-	"sync"
-	"time"
 )
 
 const (
@@ -50,7 +51,7 @@ type Client struct {
 	metricsSetupOnce *sync.Once
 }
 
-func (mi *ModuleInstance) Client(call goja.ConstructorCall, rt *goja.Runtime) *goja.Object {
+func (mi *ModuleInstance) Client(call sobek.ConstructorCall, rt *sobek.Runtime) *sobek.Object {
 	if mi.vu.State() != nil {
 		common.Throw(rt, errors.New("creating client objects is allowed only in the Init context"))
 	}
@@ -119,38 +120,38 @@ func parseClientConfig(config ClientConfig) (*http.Client, error) {
 	return fhc, nil
 }
 
-func (c *Client) verifyReq(r *goja.Object) {
+func (c *Client) verifyReq(r *sobek.Object) {
 	if _, ok := r.Export().(*RequestWrapper); !ok {
 		common.Throw(c.vu.Runtime(), errors.New("object not a Request"))
 	}
 }
 
-func (c *Client) Options(r *goja.Object) (*Response, error) {
+func (c *Client) Options(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodOptions)
 }
 
-func (c *Client) Put(r *goja.Object) (*Response, error) {
+func (c *Client) Put(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodPut)
 }
 
-func (c *Client) Patch(r *goja.Object) (*Response, error) {
+func (c *Client) Patch(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodPatch)
 }
 
-func (c *Client) Delete(r *goja.Object) (*Response, error) {
+func (c *Client) Delete(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodDelete)
 }
 
-func (c *Client) Post(r *goja.Object) (*Response, error) {
+func (c *Client) Post(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodPost)
 }
 
-func (c *Client) Get(r *goja.Object) (*Response, error) {
+func (c *Client) Get(r *sobek.Object) (*Response, error) {
 	c.verifyReq(r)
 	return c.makeReq(r.Export().(*RequestWrapper), http.MethodGet)
 }
@@ -192,12 +193,11 @@ func (c *Client) setupNewReq(reqw *RequestWrapper, method string) error {
 	}
 
 	if setBody(method, reqw.Body) {
-
 		switch reqw.Body.(type) {
 		case string:
 			reqw.req.SetBody([]byte(reqw.Body.(string)))
-		case goja.ArrayBuffer:
-			reqw.req.SetBody(reqw.Body.(goja.ArrayBuffer).Bytes())
+		case sobek.ArrayBuffer:
+			reqw.req.SetBody(reqw.Body.(sobek.ArrayBuffer).Bytes())
 		case *FileStream:
 			f := reqw.Body.(*FileStream)
 			// reset to beginning of file for fresh request

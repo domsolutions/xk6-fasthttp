@@ -2,9 +2,10 @@ package fasthttp
 
 import (
 	"errors"
-	"github.com/dop251/goja"
-	"go.k6.io/k6/js/common"
 	"os"
+
+	"github.com/grafana/sobek"
+	"go.k6.io/k6/js/common"
 )
 
 type FileStream struct {
@@ -17,7 +18,7 @@ func (s *FileStream) Close() error {
 	return nil
 }
 
-func (mi *ModuleInstance) FileStream(call goja.ConstructorCall, rt *goja.Runtime) *goja.Object {
+func (mi *ModuleInstance) FileStream(call sobek.ConstructorCall, rt *sobek.Runtime) *sobek.Object {
 	if len(call.Arguments) != 1 {
 		common.Throw(rt, errors.New("one arg required of file path for stream"))
 	}

@@ -3,11 +3,11 @@ module github.com/domsolutions/xk6-fasthttp
 go 1.20
 
 require (
-	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
+	github.com/grafana/sobek v0.0.0-20240607083612-4f0cd64f4e78
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.17.1
 	github.com/valyala/fasthttp v1.54.0
-	go.k6.io/k6 v0.51.0
+	go.k6.io/k6 v0.51.1-0.20240610082146-1f01a9bc2365
 	golang.org/x/net v0.26.0
 	gopkg.in/guregu/null.v3 v3.5.0
 )
@@ -21,6 +21,8 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.9.0 // indirect
+	github.com/dop251/goja v0.0.0-20240516125602-ccbae20bcec2 // indirect
+	github.com/evanw/esbuild v0.21.2 // indirect
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect

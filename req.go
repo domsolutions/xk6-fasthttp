@@ -1,9 +1,10 @@
 package fasthttp
 
 import (
+	"sync"
+
 	"github.com/valyala/fasthttp"
 	"go.k6.io/k6/lib/netext/httpext"
-	"sync"
 )
 
 type RequestWrapper struct {

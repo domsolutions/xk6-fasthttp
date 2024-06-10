@@ -5,13 +5,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dop251/goja"
+	"github.com/grafana/sobek"
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules/k6"
 	"go.k6.io/k6/metrics"
 )
 
-func (mi *ModuleInstance) CheckStatus(wantStatus int, r *goja.Object, extras ...goja.Value) (bool, error) {
+func (mi *ModuleInstance) CheckStatus(wantStatus int, r *sobek.Object, extras ...sobek.Value) (bool, error) {
 	state := mi.vu.State()
 	if state == nil {
 		return false, k6.ErrCheckInInitContext
