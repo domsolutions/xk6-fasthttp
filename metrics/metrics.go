@@ -2,15 +2,16 @@ package metrics
 
 import (
 	"context"
+	"net"
+	"strconv"
+	"sync"
+
 	"github.com/domsolutions/xk6-fasthttp/errors"
 	"github.com/domsolutions/xk6-fasthttp/tracer"
 	http "github.com/valyala/fasthttp"
 	"go.k6.io/k6/lib"
 	"go.k6.io/k6/lib/netext"
 	"go.k6.io/k6/metrics"
-	"net"
-	"strconv"
-	"sync"
 )
 
 // UnfinishedRequest stores the Request and the raw result returned from the

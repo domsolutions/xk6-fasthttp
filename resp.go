@@ -2,6 +2,7 @@ package fasthttp
 
 import (
 	"fmt"
+
 	http "github.com/valyala/fasthttp"
 	"go.k6.io/k6/lib/netext/httpext"
 )
