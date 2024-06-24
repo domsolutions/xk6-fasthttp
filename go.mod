@@ -6,7 +6,7 @@ require (
 	github.com/grafana/sobek v0.0.0-20240607083612-4f0cd64f4e78
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.17.1
-	github.com/valyala/fasthttp v1.54.0
+	github.com/valyala/fasthttp v1.55.0
 	go.k6.io/k6 v0.51.1-0.20240610082146-1f01a9bc2365
 	golang.org/x/net v0.26.0
 	gopkg.in/guregu/null.v3 v3.5.0
@@ -31,7 +31,7 @@ require (
 	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.19.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
-	github.com/klauspost/compress v1.17.7 // indirect
+	github.com/klauspost/compress v1.17.9 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
