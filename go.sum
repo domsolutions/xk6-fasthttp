@@ -20,8 +20,8 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/rVNCu3HqELle0jiPLLBs70cWOduZpkS1E78=
 github.com/dlclark/regexp2 v1.9.0 h1:pTK/l/3qYIKaRXuHnEnIf7Y5NxfRPfpb7dis6/gdlVI=
 github.com/dlclark/regexp2 v1.9.0/go.mod h1:DHkYz0B9wPfa6wondMfaivmHpzrQ3v9q8cnmRbL6yW8=
-github.com/dop251/goja v0.0.0-20240516125602-ccbae20bcec2 h1:OFTHt+yJDo/uaIKMGjEKzc3DGhrpQZoqvMUIloZv6ZY=
-github.com/dop251/goja v0.0.0-20240516125602-ccbae20bcec2/go.mod h1:o31y53rb/qiIAONF7w3FHJZRqqP3fzHUr1HqanthByw=
+github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b h1:fMKDnOAKCGXSZBphY/ilLtu7cmwMnjqE+xJxUkfkpCY=
+github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b/go.mod h1:o31y53rb/qiIAONF7w3FHJZRqqP3fzHUr1HqanthByw=
 github.com/evanw/esbuild v0.21.2 h1:CLplcGi794CfHLVmUbvVfTMKkykm+nyIHU8SU60KUTA=
 github.com/evanw/esbuild v0.21.2/go.mod h1:D2vIQZqV/vIf/VRHtViaUtViZmG7o+kKmlBfVQuRi48=
 github.com/fatih/color v1.16.0 h1:zmkK9Ngbjj+K0yRhTVONQh1p/HknKYSlNT+vZCzyokM=
@@ -54,9 +54,9 @@ github.com/google/pprof v0.0.0-20230728192033-2ba5b33183c6/go.mod h1:Jh3hGz2jkYa
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/gorilla/websocket v1.5.1 h1:gmztn0JnHVt9JZquRuzLw3g4wouNVzKL15iLr/zn/QY=
 github.com/gorilla/websocket v1.5.1/go.mod h1:x3kM2JMyaluk02fnUJpQuwD2dCS5NDG2ZHL0uE0tcaY=
-github.com/grafana/sobek v0.0.0-20240607083612-4f0cd64f4e78 h1:rVCZdB+13G+aQoGm3CBVaDGl0uxZxfjvQgEJy4IeHTA=
-github.com/grafana/sobek v0.0.0-20240607083612-4f0cd64f4e78/go.mod h1:6ZH0b0iOxyigeTh+/IlGoL0Hd3lVXA94xoXf0ldNgCM=
-github.com/grafana/xk6-browser v1.5.2-0.20240607140836-ffcc1f5169ad h1:q3sB942oYrD7NlcsS9hz26I9W+EKfpKVmhKe7dWUp3s=
+github.com/grafana/sobek v0.0.0-20240613124309-cb36746e8fee h1:KjQPRiLoSZMz+oMdEyh8fE/rurMpx3lpRH8PIR66nzo=
+github.com/grafana/sobek v0.0.0-20240613124309-cb36746e8fee/go.mod h1:4uA93vCOP7fFfkAEByuRieuU72pAc5DH05b71yCIVsQ=
+github.com/grafana/xk6-browser v1.6.0 h1:x8ZfBwiUJRRKNEw+Asr5ae9o2gFvYU1Ll/4dDMNIPZ8=
 github.com/grafana/xk6-redis v0.3.0 h1:eV1YO0miPqGFilN8sL/3OdO6Mm+hZH2nsvJm5dkE0CM=
 github.com/grafana/xk6-webcrypto v0.4.0 h1:CXRGkvVg8snYEyGCq3d5XGzDPxTPJ1m5CS68jPdtZZk=
 github.com/grafana/xk6-websockets v0.5.1 h1:wymI6UWpwDorv3mEInytrQjC9cmXYxQFygBOCMY1q6k=
@@ -124,8 +124,8 @@ github.com/valyala/fasthttp v1.55.0 h1:Zkefzgt6a7+bVKHnu/YaYSOPfNYNisSVBo/unVCf8
 github.com/valyala/fasthttp v1.55.0/go.mod h1:NkY9JtkrpPKmgwV3HTaS2HWaJss9RSIsRVfcxxoHiOM=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
-go.k6.io/k6 v0.51.1-0.20240610082146-1f01a9bc2365 h1:ZXlJs5hXt1hbY4k3jHVJS8xrgypgTZAwbMBVH1EMCgY=
-go.k6.io/k6 v0.51.1-0.20240610082146-1f01a9bc2365/go.mod h1:LJKmFwUODAYoxitsJ3Xk+wsyVJDpyQiLyJAVn+oGyVQ=
+go.k6.io/k6 v0.52.0 h1:VrwjSCrM4v61UptCeTPJjYE+Ebyy3xbtqVuAFYGVM2c=
+go.k6.io/k6 v0.52.0/go.mod h1:Dr6udC+rZxT0Wu5wU98eOYpABU4e0Gc5Dx4MC5anJO8=
 go.opentelemetry.io/otel v1.24.0 h1:0LAOdjNmQeSTzGBzduGe/rU4tZhMwL5rWgtp9Ku5Jfo=
 go.opentelemetry.io/otel v1.24.0/go.mod h1:W7b9Ozg4nkF5tWI5zsXkaKKDjdVjpD4oAt9Qi/MArHo=
 go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.24.0 h1:t6wl9SPayj+c7lEIFgm4ooDBZVb01IhLB4InpomhRw8=
