@@ -8,7 +8,7 @@ require (
 	github.com/tidwall/gjson v1.17.1
 	github.com/valyala/fasthttp v1.55.0
 	go.k6.io/k6 v0.51.1-0.20240610082146-1f01a9bc2365
-	golang.org/x/net v0.26.0
+	golang.org/x/net v0.27.0
 	gopkg.in/guregu/null.v3 v3.5.0
 )
 
@@ -55,8 +55,8 @@ require (
 	go.opentelemetry.io/otel/sdk v1.24.0 // indirect
 	go.opentelemetry.io/otel/trace v1.24.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.1.0 // indirect
-	golang.org/x/crypto v0.24.0 // indirect
-	golang.org/x/sys v0.21.0 // indirect
+	golang.org/x/crypto v0.25.0 // indirect
+	golang.org/x/sys v0.22.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240227224415-6ceb2ff114de // indirect
