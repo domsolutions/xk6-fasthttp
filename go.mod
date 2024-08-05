@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/grafana/sobek v0.0.0-20240613124309-cb36746e8fee
 	github.com/stretchr/testify v1.9.0
-	github.com/tidwall/gjson v1.17.1
+	github.com/tidwall/gjson v1.17.3
 	github.com/valyala/fasthttp v1.55.0
 	go.k6.io/k6 v0.52.0
 	golang.org/x/net v0.27.0
