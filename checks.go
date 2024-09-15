@@ -53,7 +53,7 @@ func (mi *ModuleInstance) CheckStatus(wantStatus int, r *sobek.Object, extras ..
 		},
 		Time:     t,
 		Metadata: commonTagsAndMeta.Metadata,
-		Value:    0,
+		Value:    1,
 	}
 
 	metrics.PushIfNotDone(ctx, state.Samples, sample)
