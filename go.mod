@@ -6,7 +6,7 @@ require (
 	github.com/grafana/sobek v0.0.0-20240808084414-f7ac208544fe
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.17.1
-	github.com/valyala/fasthttp v1.55.0
+	github.com/valyala/fasthttp v1.56.0
 	go.k6.io/k6 v0.53.0
 	golang.org/x/net v0.29.0
 	gopkg.in/guregu/null.v3 v3.5.0
