@@ -1,6 +1,6 @@
 module github.com/domsolutions/xk6-fasthttp
 
-go 1.20
+go 1.23
 
 require (
 	github.com/grafana/sobek v0.0.0-20240808084414-f7ac208544fe
