@@ -145,7 +145,7 @@ export default function () {
 
 ## Install
 
-Requires Go >= 1.20
+Requires Go >= 1.23
 
 1. Install xk6:
 ```shell
