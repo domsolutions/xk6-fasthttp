@@ -4,7 +4,7 @@ go 1.23
 
 require (
 	github.com/grafana/sobek v0.0.0-20241024150027-d91f02b05e9b
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/gjson v1.18.0
 	github.com/valyala/fasthttp v1.58.0
 	go.k6.io/k6 v0.55.2
