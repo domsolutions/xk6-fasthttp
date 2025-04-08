@@ -7,14 +7,13 @@ import (
 
 	"github.com/grafana/sobek"
 	"go.k6.io/k6/js/common"
-	"go.k6.io/k6/js/modules/k6"
 	"go.k6.io/k6/metrics"
 )
 
 func (mi *ModuleInstance) CheckStatus(wantStatus int, r *sobek.Object, extras ...sobek.Value) (bool, error) {
 	state := mi.vu.State()
 	if state == nil {
-		return false, k6.ErrCheckInInitContext
+		return false, errors.New("Using checkstatus in the init context is not supported")
 	}
 
 	if r == nil {
