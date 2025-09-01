@@ -48,7 +48,7 @@ jobs:
         which go
         go version
         
-        GOPRIVATE="go.k6.io/k6" xk6 build latest \
+        GOPRIVATE="go.k6.io/k6" xk6 build latest -v \
           --output ./k6ext \
           --with github.com/domsolutions/xk6-fasthttp=.
         ./k6ext version
