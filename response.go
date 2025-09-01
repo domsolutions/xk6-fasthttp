@@ -94,6 +94,7 @@ func (res *Response) JSON(selector ...string) sobek.Value {
 			if !result.Exists() {
 				return sobek.Undefined()
 			}
+			
 			return rt.ToValue(result.Value())
 		}
 
